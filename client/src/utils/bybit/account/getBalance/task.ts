@@ -1,4 +1,4 @@
-import { Task } from "../task";
+import { Task } from "../../../../task/task";
 
 export class checkBal extends Task {
   constructor(taskNum: number) {

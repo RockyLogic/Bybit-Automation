@@ -1,5 +1,5 @@
-import { Task } from "../task/task";
-import { sleep } from "../utils/sleep";
+import { Task } from "../../task/task";
+import { sleep } from "./sleep";
 
 export function retry(
   delay: number,

@@ -2,6 +2,6 @@
   "license": "6Y3gUZJfYLr4Jt6zvfW16naxNEdheXVnGogV7iwYSxZUz5qHbuDCGgqmMux4xuJYi8LGFZL91SyfGgmyHpoBw2D",
   "pid": "",
   "webhook": "",
-  "aycd-access-token": "",
-  "aycd-api-key": ""
+  "api-key": "",
+  "api-secret": ""
 }
