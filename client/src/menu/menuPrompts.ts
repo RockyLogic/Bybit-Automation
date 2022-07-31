@@ -65,6 +65,7 @@ export const moduleQuestion = () => {
         "postOrderCond",
         "postStopLost",
         "postWithdraw",
+        "changeAccount",
     ];
 
     let moduleOptions = [];

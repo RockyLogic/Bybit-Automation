@@ -1,8 +1,9 @@
-const chalk = require("chalk");
-import prompts from "prompts";
 import { runner } from "../runner/run";
+import { account } from "../types/account";
 import { getConfig } from "../utils/misc/getConfig";
-import { accountQuestion, moduleQuestion } from "./menuPrompts";
+import { displayLogo } from "./displayLogo";
+import { accountMenu } from "./subMenu/accountMenu";
+import { moduleMenu } from "./subMenu/moduleMenu";
 
 // Main menu
 export const displayMenu = async (version: string) => {
@@ -10,25 +11,12 @@ export const displayMenu = async (version: string) => {
     let config: object = await getConfig();
 
     // GUI Interface
-    console.clear();
-    console.log(`
-  ██████╗ ██╗   ██╗██████╗ ██╗████████╗   █████╗ ██╗ █████╗ 
-  ██╔══██╗╚██╗ ██╔╝██╔══██╗██║╚══██╔══╝  ██╔══██╗██║██╔══██╗
-  ██████╦╝ ╚████╔╝ ██████╦╝██║   ██║     ███████║██║██║  ██║
-  ██╔══██╗  ╚██╔╝  ██╔══██╗██║   ██║     ██╔══██║██║██║  ██║
-  ██████╦╝   ██║   ██████╦╝██║   ██║     ██║  ██║██║╚█████╔╝
-  ╚═════╝    ╚═╝   ╚═════╝ ╚═╝   ╚═╝     ╚═╝  ╚═╝╚═╝ ╚════╝ 
-  `);
-    console.log(chalk.magenta(`Current Version: ${version}`));
-    console.log("-----------------------------------------------");
+    displayLogo(version);
 
     // Prompts Questions
-    const account = await prompts(await accountQuestion());
-    const mode = await prompts(await moduleQuestion());
+    const account = await accountMenu();
+    const mode = await moduleMenu();
 
     // Runner - takes params performs the logic
-    await runner(account.account, mode.module);
-
-    // Loops back to main menu
-    displayMenu(version);
+    await runner(account.account as account, mode.module);
 };

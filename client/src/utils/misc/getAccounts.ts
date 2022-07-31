@@ -21,12 +21,13 @@ export const getAccounts = async () => {
         });
 
         reader.on("close", () => {
-            accountsMap.set("None", {});
+            accountsMap.set("Not Applicable", {});
             accounts.forEach((account) => {
                 accountsMap.set(account[0], {
+                    email: account[0],
                     pass: account[1],
-                    apikey: account[2],
-                    apisecret: account[3],
+                    apiKey: account[2],
+                    apiSecret: account[3],
                 });
             });
         });
