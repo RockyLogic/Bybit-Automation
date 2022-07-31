@@ -9,6 +9,10 @@ export const runner = async (account: account, mode: number | string) => {
     displayLogo("BETA v1.0.0");
     console.log(`Account: >> ${account.email}`);
 
+    process.on("SIGINT", () => {
+        process.exit();
+    });
+
     const bybitAccount = new Bybit(account, 0);
 
     switch (mode) {

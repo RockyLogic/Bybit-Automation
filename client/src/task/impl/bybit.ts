@@ -24,7 +24,7 @@ export class Bybit extends Task {
     }
 
     async test() {
-        this.logSuccess(`Test ${this.email} ${this.number}`);
+        this.logSuccess(`Account: ${this.email} `);
     }
 
     async getBalance() {

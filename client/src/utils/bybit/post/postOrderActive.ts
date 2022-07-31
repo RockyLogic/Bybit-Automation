@@ -35,7 +35,7 @@ export const postOrderActive = async (
     const signature = getSignature(params, apiSecret);
     params["sign"] = signature;
 
-    const res = await axios.post(process.env.url + path, params);
+    const res = await axios.post(process.env.URL + path, params);
 
     return res.data.result;
 };

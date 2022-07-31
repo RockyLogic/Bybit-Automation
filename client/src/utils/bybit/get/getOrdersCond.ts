@@ -21,7 +21,7 @@ export const getOrdersCond = async (
 
     const paramsQueryString = getSignatureQuery(params, apiSecret);
     const res = await axios.get(
-        process.env.url + path + "?" + paramsQueryString
+        process.env.URL + path + "?" + paramsQueryString
     );
 
     return res.data.result;
