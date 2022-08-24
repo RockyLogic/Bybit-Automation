@@ -65,33 +65,43 @@ export const runner = async (account: account, mode: number | string) => {
 
         // Mode: 10
         case "postOrderCond":
-            await bybitAccount.getRecordsWithdraw();
+            await bybitAccount.postOrderCond();
+            break;
+
+        // Mode: 11
+        case "postSetLeverage":
+            await bybitAccount.postSetLeverage();
+            break;
+
+        // Mode: 11
+        case "postSwitchMargin":
+            await bybitAccount.postSwitchMargin();
             break;
 
         // Mode: 11
         case "postStopLost":
-            await bybitAccount.getRecordsWithdraw();
+            await bybitAccount.postStopLost();
             break;
 
         // Mode: 12
         case "postChangeMargin":
-            await bybitAccount.getRecordsWithdraw();
+            await bybitAccount.postChangeMargin();
             break;
 
         // Mode: 13
         case "postInternalTransfer":
-            await bybitAccount.getRecordsWithdraw();
+            await bybitAccount.postInternalTransfer();
             break;
 
         // DELETE REQUEST ---------------------------
         // Mode: 14
         case "deleteOrderActive":
-            await bybitAccount.getRecordsWithdraw();
+            await bybitAccount.deleteOrderActive();
             break;
 
         // Mode: 15
         case "deleteOrderCond":
-            await bybitAccount.getRecordsWithdraw();
+            await bybitAccount.deleteOrderCond();
             break;
 
         // Mode: 16

@@ -4,30 +4,18 @@ import { getSignature } from "../signature/signature";
 import dotenv from "dotenv";
 dotenv.config();
 
-export const postOrderActive = async (
-    side: string,
+export const postChangeMargin = async (
     symbol: string,
-    order_type: string,
-    qty: number,
-    price: number,
-    time_in_force: string,
-    take_profit: number,
-    stop_loss: number,
+    margin: string,
     apiKey: string,
     apiSecret: string
 ) => {
-    const path = "/v2/private/order/create";
+    const path = "/v2/private/position/change-position-margin";
     const timestamp = Date.now().toString();
 
-    let params: { [key: string]: string | number } = {
-        side: side,
+    let params: { [key: string]: string | number | boolean } = {
         symbol: symbol,
-        order_type: order_type,
-        qty: qty,
-        price: price,
-        time_in_force: time_in_force,
-        take_profit: take_profit,
-        stop_loss: stop_loss,
+        margin: margin,
         api_key: apiKey,
         timestamp: timestamp,
     };

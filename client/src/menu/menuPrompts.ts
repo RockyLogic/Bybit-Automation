@@ -63,7 +63,9 @@ export const moduleQuestion = () => {
         "postInternalTransfer",
         "postOrderActive",
         "postOrderCond",
+        "postSetLeverage",
         "postStopLost",
+        "postSwitchMargin",
         "postWithdraw",
         "changeAccount",
     ];

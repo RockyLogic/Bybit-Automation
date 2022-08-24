@@ -4,19 +4,21 @@ import { getSignature } from "../signature/signature";
 import dotenv from "dotenv";
 dotenv.config();
 
-export const postOrderActive = async (
+export const postOrderCond = async (
     side: string,
     symbol: string,
     order_type: string,
     qty: number,
     price: number,
+    base_price: number,
+    stop_px: number,
     time_in_force: string,
     take_profit: number,
     stop_loss: number,
     apiKey: string,
     apiSecret: string
 ) => {
-    const path = "/v2/private/order/create";
+    const path = "/v2/private/stop-order/create";
     const timestamp = Date.now().toString();
 
     let params: { [key: string]: string | number } = {
@@ -25,6 +27,8 @@ export const postOrderActive = async (
         order_type: order_type,
         qty: qty,
         price: price,
+        base_price: base_price, // Curr price - determine side of trigger its crossing
+        stop_px: stop_px, // Trigger Price
         time_in_force: time_in_force,
         take_profit: take_profit,
         stop_loss: stop_loss,
